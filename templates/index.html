@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Geoedit Tool</title>
-</head>
-<body>
-    <h1>Filter Edits by Geolocation</h1>
-    <form action="/filter" method="post">
-        <label for="country">Country:</label>
-        <input type="text" id="country" name="country" required><br><br>
-
-        <label for="start_date">Start Date (YYYY-MM-DD):</label>
-        <input type="date" id="start_date" name="start_date" required><br><br>
-
-        <label for="end_date">End Date (YYYY-MM-DD):</label>
-        <input type="date" id="end_date" name="end_date" required><br><br>
-
-        <button type="submit">Submit</button>
-    </form>
-</body>
-</html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Geo-Editors Data Tool</title>
+    </head>
+    <body>
+        <h1>Geo-Editors Data Tool</h1>
+        <form action="/data" method="get">
+            <label for="type">Select Data Type:</label>
+            <select id="type" name="type">
+                <option value="monthly" selected>Monthly</option>
+                <option value="weekly">Weekly</option>
+            </select>
+            <br><br>
+            <label for="country">Enter Country Code (Optional):</label>
+            <input type="text" id="country" name="country" placeholder="e.g., CL">
+            <br><br>
+            <button type="submit">Fetch Data</button>
+        </form>
+    </body>
+    </html>

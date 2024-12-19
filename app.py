@@ -25,10 +25,13 @@ def get_data():
     # Generate date list (default range from July 2023 to now)
     date_list = generate_date_list()
 
-    # Fetch data based on the type
-    master_data = fetch_and_merge_data(date_list, type=data_type)
+    # Fetch the merged data
+    try:
+        master_data = fetch_and_merge_data(date_list, data_type=data_type)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
-    # If a country is provided, filter the data
+    # Filter by country if provided
     if country:
         master_data = master_data[master_data["country_code"] == country.upper()]
 
